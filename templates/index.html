@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Interview Practice Bot</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <h1>🤖 AI Interview Practice Bot</h1>
+
+    <p>
+        Practice your interview with an AI-powered interviewer.
+    </p>
+
+
+    <form action="/start" method="POST">
+
+        <label>Choose Interview Type</label>
+
+        <select name="category" required>
+
+            <option value="Python">Python</option>
+
+            <option value="Java">Java</option>
+
+            <option value="DBMS">DBMS</option>
+
+            <option value="Computer Networks">
+                Computer Networks
+            </option>
+
+            <option value="Web Development">
+                Web Development
+            </option>
+
+            <option value="HR Interview">
+                HR Interview
+            </option>
+
+        </select>
+
+
+        <label>Choose Difficulty</label>
+
+        <select name="difficulty" required>
+
+            <option value="Easy">Easy</option>
+
+            <option value="Medium">Medium</option>
+
+            <option value="Hard">Hard</option>
+
+        </select>
+
+
+        <button type="submit">
+            Start Interview 🚀
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>

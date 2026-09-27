@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Interview Performance</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <h1>🎉 Interview Completed</h1>
+
+
+    <p>
+        <strong>Category:</strong>
+        {{ category }}
+    </p>
+
+
+    <p>
+        <strong>Difficulty:</strong>
+        {{ difficulty }}
+    </p>
+
+
+    <div class="score-box">
+
+        <h2>📊 Performance</h2>
+
+        <h1>
+            {{ total_score }}/{{ max_score }}
+        </h1>
+
+        <h2>
+            {{ percentage }}%
+        </h2>
+
+    </div>
+
+
+    <hr>
+
+
+    <h2>🤖 AI Evaluation</h2>
+
+
+    {% for answer in answers %}
+
+        <div class="answer-box">
+
+            <h3>
+                Question {{ loop.index }}
+            </h3>
+
+
+            <p>
+                <strong>Question:</strong>
+                {{ answer["question"] }}
+            </p>
+
+
+            <p>
+                <strong>Your Answer:</strong>
+            </p>
+
+            <p>
+                {{ answer["answer"] }}
+            </p>
+
+
+            <p>
+                <strong>Score:</strong>
+                {{ answer["score"] }}/10
+            </p>
+
+
+            <p>
+                <strong>AI Feedback:</strong>
+            </p>
+
+            <div class="feedback">
+                {{ answer["feedback"] }}
+            </div>
+
+        </div>
+
+    {% endfor %}
+
+
+    <a href="/">
+        <button>
+            Take Another Interview
+        </button>
+    </a>
+
+</div>
+
+</body>
+
+</html>

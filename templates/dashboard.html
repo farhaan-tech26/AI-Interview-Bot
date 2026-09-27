@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Dashboard - AI Interview Bot</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+</head>
+
+
+<body>
+
+<div class="container dashboard-container">
+
+    <h1>📊 AI Interview Dashboard</h1>
+
+    <p>
+        Track your interview performance and improve your skills.
+    </p>
+
+
+    <!-- Statistics -->
+
+    <div class="dashboard-cards">
+
+        <div class="dashboard-card">
+
+            <h3>🎯 Total Interviews</h3>
+
+            <h2>{{ total_interviews }}</h2>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <h3>📝 Questions Answered</h3>
+
+            <h2>{{ total_questions }}</h2>
+
+        </div>
+
+
+        <div class="dashboard-card">
+
+            <h3>📈 Average Score</h3>
+
+            <h2>{{ average_score }}%</h2>
+
+        </div>
+
+    </div>
+
+
+    <hr>
+
+
+    <!-- Performance Chart -->
+
+    <h2>📈 Performance History</h2>
+
+    <div class="chart-box">
+
+        <canvas id="performanceChart"></canvas>
+
+    </div>
+
+
+    <hr>
+
+
+    <!-- Interview History -->
+
+    <h2>📚 Interview History</h2>
+
+    {% if interviews %}
+
+        {% for interview in interviews %}
+
+            <div class="history-card">
+
+                <div>
+
+                    <h3>
+                        {{ interview["category"] }}
+                    </h3>
+
+                    <p>
+                        Difficulty:
+                        <strong>
+                            {{ interview["difficulty"] }}
+                        </strong>
+                    </p>
+
+                    <p>
+                        Date:
+                        {{ interview["created_at"] }}
+                    </p>
+
+                </div>
+
+
+                <div class="history-score">
+
+                    <h2>
+                        {{ interview["percentage"] }}%
+                    </h2>
+
+                    <p>Performance</p>
+
+                </div>
+
+            </div>
+
+        {% endfor %}
+
+    {% else %}
+
+        <p>No interviews completed yet.</p>
+
+    {% endif %}
+
+
+    <div class="dashboard-buttons">
+
+        <a href="/">
+            <button>🏠 Home</button>
+        </a>
+
+    </div>
+
+</div>
+
+
+<script>
+
+    const interviewLabels = [
+        {% for interview in interviews %}
+            "{{ interview['category'] }}",
+        {% endfor %}
+    ];
+
+
+    const interviewScores = [
+        {% for interview in interviews %}
+            {{ interview['percentage'] }},
+        {% endfor %}
+    ];
+
+
+    const ctx =
+        document.getElementById(
+            'performanceChart'
+        );
+
+
+    new Chart(ctx, {
+
+        type: 'line',
+
+        data: {
+
+            labels: interviewLabels,
+
+            datasets: [{
+
+                label: 'Performance %',
+
+                data: interviewScores,
+
+                borderWidth: 3,
+
+                tension: 0.3
+
+            }]
+
+        },
+
+        options: {
+
+            responsive: true,
+
+            scales: {
+
+                y: {
+
+                    beginAtZero: true,
+
+                    max: 100
+
+                }
+
+            }
+
+        }
+
+    });
+
+</script>
+
+
+</body>
+
+</html>

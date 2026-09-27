@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>AI Interview</title>
+
+    <link rel="stylesheet"
+          href="{{ url_for('static', filename='css/style.css') }}">
+
+</head>
+
+
+<body>
+
+<div class="container">
+
+    <h1>🤖 AI Interview</h1>
+
+
+    <p>
+        <strong>Category:</strong>
+        {{ category }}
+    </p>
+
+
+    <p>
+        <strong>Difficulty:</strong>
+        {{ difficulty }}
+    </p>
+
+
+    <hr>
+
+
+    <h2>
+        Question {{ question_number }}
+        / {{ total_questions }}
+    </h2>
+
+
+    <div class="question-box">
+
+        <p>
+            {{ question }}
+        </p>
+
+    </div>
+
+
+    <form action="/answer" method="POST">
+
+        <label>Your Answer</label>
+
+        <textarea
+            name="answer"
+            rows="8"
+            placeholder="Type your answer here..."
+            required></textarea>
+
+
+        <button type="submit">
+            Submit Answer ➜
+        </button>
+
+    </form>
+
+</div>
+
+</body>
+
+</html>
