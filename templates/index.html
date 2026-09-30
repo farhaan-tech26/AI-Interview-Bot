@@ -1,80 +1,509 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">
+    <title>InterviewAI | AI Interview Practice</title>
 
-    <title>AI Interview Practice Bot</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap"
+          rel="stylesheet">
 
     <link rel="stylesheet"
           href="{{ url_for('static', filename='css/style.css') }}">
-
 </head>
 
+<body class="home-page">
 
-<body>
+<!-- ================= NAVBAR ================= -->
 
-<div class="container">
+<nav class="navbar">
 
-    <h1>🤖 AI Interview Practice Bot</h1>
+    <div class="nav-container">
 
-    <p>
-        Practice your interview with an AI-powered interviewer.
-    </p>
+        <a href="/" class="brand">
+            <div class="brand-icon">✦</div>
 
+            <div>
+                <div class="brand-name">InterviewAI</div>
+                <div class="brand-subtitle">Practice. Improve. Succeed.</div>
+            </div>
+        </a>
 
-    <form action="/start" method="POST">
+        <div class="nav-links">
+            <a href="#features">Features</a>
+            <a href="#how-it-works">How It Works</a>
+            <a href="#practice">Practice</a>
 
-        <label>Choose Interview Type</label>
+            <a href="/dashboard" class="nav-dashboard">
+                Dashboard
+            </a>
+        </div>
 
-        <select name="category" required>
+    </div>
 
-            <option value="Python">Python</option>
-
-            <option value="Java">Java</option>
-
-            <option value="DBMS">DBMS</option>
-
-            <option value="Computer Networks">
-                Computer Networks
-            </option>
-
-            <option value="Web Development">
-                Web Development
-            </option>
-
-            <option value="HR Interview">
-                HR Interview
-            </option>
-
-        </select>
+</nav>
 
 
-        <label>Choose Difficulty</label>
+<!-- ================= HERO ================= -->
 
-        <select name="difficulty" required>
+<section class="hero">
 
-            <option value="Easy">Easy</option>
+    <div class="hero-container">
 
-            <option value="Medium">Medium</option>
+        <!-- LEFT -->
 
-            <option value="Hard">Hard</option>
+        <div class="hero-content">
 
-        </select>
+            <div class="hero-badge">
+                <span class="status-dot"></span>
+                AI-POWERED INTERVIEW PRACTICE
+            </div>
+
+            <h1>
+                Prepare Smarter.
+                <span>Interview Better.</span>
+            </h1>
+
+            <p class="hero-description">
+                Practice technical and HR interviews with intelligent
+                AI-powered evaluation. Get instant feedback, improve
+                your answers, and track your performance.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="#practice" class="primary-button">
+                    Start Practice
+                    <span>→</span>
+                </a>
+
+                <a href="#how-it-works" class="secondary-button">
+                    See How It Works
+                </a>
+
+            </div>
 
 
-        <button type="submit">
-            Start Interview 🚀
-        </button>
+            <!-- STATS -->
 
-    </form>
+            <div class="hero-stats">
 
-</div>
+                <div class="hero-stat">
+                    <strong>6</strong>
+                    <span>Categories</span>
+                </div>
 
-</body>
+                <div class="stat-divider"></div>
 
-</html>
+                <div class="hero-stat">
+                    <strong>3</strong>
+                    <span>Difficulty Levels</span>
+                </div>
+
+                <div class="stat-divider"></div>
+
+                <div class="hero-stat">
+                    <strong>AI</strong>
+                    <span>Instant Evaluation</span>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- RIGHT PREVIEW -->
+
+        <div class="hero-preview">
+
+            <div class="preview-glow"></div>
+
+            <div class="interview-card">
+
+                <div class="card-top">
+
+                    <div>
+                        <span class="small-label">
+                            LIVE INTERVIEW
+                        </span>
+
+                        <h3>
+                            Python Technical Interview
+                        </h3>
+                    </div>
+
+                    <div class="live-indicator">
+                        <span></span>
+                        LIVE
+                    </div>
+
+                </div>
+
+
+                <div class="progress-area">
+
+                    <div class="progress-info">
+                        <span>Question 3 of 5</span>
+                        <span>60%</span>
+                    </div>
+
+                    <div class="progress-bar">
+                        <div class="progress-fill"></div>
+                    </div>
+
+                </div>
+
+
+                <div class="question-box">
+
+                    <div class="question-number">
+                        QUESTION 03
+                    </div>
+
+                    <h4>
+                        What is the difference between
+                        a list and a tuple in Python?
+                    </h4>
+
+                </div>
+
+
+                <div class="answer-box">
+
+                    <div class="answer-label">
+                        <span>Your Answer</span>
+                        <span class="typing">● ● ●</span>
+                    </div>
+
+                    <p>
+                        A list is mutable whereas a tuple is
+                        immutable. Lists use square brackets,
+                        while tuples use parentheses...
+                    </p>
+
+                </div>
+
+
+                <div class="evaluation">
+
+                    <div class="evaluation-icon">
+                        ✓
+                    </div>
+
+                    <div>
+                        <strong>AI Evaluation</strong>
+                        <span>Answer analysis ready</span>
+                    </div>
+
+                    <div class="score">
+                        8.5<span>/10</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= PRACTICE ================= -->
+
+<section class="practice-section" id="practice">
+
+    <div class="section-container">
+
+        <div class="section-heading">
+
+            <div class="section-label">
+                START PRACTICING
+            </div>
+
+            <h2>
+                Choose Your Interview
+            </h2>
+
+            <p>
+                Select a category and difficulty level to begin
+                your personalized interview session.
+            </p>
+
+        </div>
+
+
+        <div class="practice-card">
+
+            <form action="/start" method="POST">
+
+                <div class="form-group">
+
+                    <label for="category">
+                        Interview Category
+                    </label>
+
+                    <select id="category"
+                            name="category"
+                            required>
+
+                        <option value="" disabled selected>
+                            Select a category
+                        </option>
+
+                        <option value="Python">
+                            Python
+                        </option>
+
+                        <option value="Java">
+                            Java
+                        </option>
+
+                        <option value="DBMS">
+                            DBMS
+                        </option>
+
+                        <option value="Computer Networks">
+                            Computer Networks
+                        </option>
+
+                        <option value="Web Development">
+                            Web Development
+                        </option>
+
+                        <option value="HR Interview">
+                            HR Interview
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label>
+                        Difficulty Level
+                    </label>
+
+                    <div class="difficulty-options">
+
+                        <label class="difficulty-card">
+
+                            <input type="radio"
+                                   name="difficulty"
+                                   value="Easy"
+                                   required>
+
+                            <div class="difficulty-content">
+
+                                <div class="difficulty-icon easy">
+                                    E
+                                </div>
+
+                                <div>
+                                    <strong>Easy</strong>
+                                    <span>Beginner friendly</span>
+                                </div>
+
+                            </div>
+
+                        </label>
+
+
+                        <label class="difficulty-card">
+
+                            <input type="radio"
+                                   name="difficulty"
+                                   value="Medium">
+
+                            <div class="difficulty-content">
+
+                                <div class="difficulty-icon medium">
+                                    M
+                                </div>
+
+                                <div>
+                                    <strong>Medium</strong>
+                                    <span>Intermediate level</span>
+                                </div>
+
+                            </div>
+
+                        </label>
+
+
+                        <label class="difficulty-card">
+
+                            <input type="radio"
+                                   name="difficulty"
+                                   value="Hard">
+
+                            <div class="difficulty-content">
+
+                                <div class="difficulty-icon hard">
+                                    H
+                                </div>
+
+                                <div>
+                                    <strong>Hard</strong>
+                                    <span>Advanced challenge</span>
+                                </div>
+
+                            </div>
+
+                        </label>
+
+                    </div>
+
+                </div>
+
+
+                <button type="submit" class="start-button">
+
+                    <span>Start Interview</span>
+
+                    <span class="button-arrow">→</span>
+
+                </button>
+
+            </form>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= FEATURES ================= -->
+
+<section class="features-section" id="features">
+
+    <div class="section-container">
+
+        <div class="section-heading center">
+
+            <div class="section-label">
+                WHY INTERVIEWAI
+            </div>
+
+            <h2>
+                Everything You Need to Practice Better
+            </h2>
+
+            <p>
+                A complete interview preparation environment
+                designed to help students build confidence.
+            </p>
+
+        </div>
+
+
+        <div class="feature-grid">
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    ✦
+                </div>
+
+                <h3>
+                    AI-Powered Evaluation
+                </h3>
+
+                <p>
+                    Get intelligent feedback on relevance,
+                    correctness, strengths and areas for improvement.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    ◈
+                </div>
+
+                <h3>
+                    Multiple Categories
+                </h3>
+
+                <p>
+                    Practice Python, Java, DBMS, networking,
+                    web development and HR interview questions.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    ↗
+                </div>
+
+                <h3>
+                    Performance Tracking
+                </h3>
+
+                <p>
+                    Monitor your interview scores and analyze
+                    your performance through the dashboard.
+                </p>
+
+            </div>
+
+
+            <div class="feature-card">
+
+                <div class="feature-icon">
+                    ◷
+                </div>
+
+                <h3>
+                    Instant Feedback
+                </h3>
+
+                <p>
+                    Receive feedback immediately after submitting
+                    each interview answer.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- ================= HOW IT WORKS ================= -->
+
+<section class="workflow-section" id="how-it-works">
+
+    <div class="section-container">
+
+        <div class="section-heading center">
+
+            <div class="section-label">
+                SIMPLE WORKFLOW
+            </div>
+
+            <h2>
+                From Practice to Improvement
+            </h2>
+
+            <p>
+                Complete your interview in four simple steps.
+            </p>
+
+        </div>
+```
